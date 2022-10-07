@@ -29,6 +29,8 @@ pre-commit
 # ------------------------------------------------------------------------------
 matplotlib
 seaborn
+pandas-profiling
+sweetviz
 
 # Analytics
 # ------------------------------------------------------------------------------
@@ -40,4 +42,6 @@ numpy
 click
 awscli
 python-dotenv>=0.5.1
-sklearn
+scikit-learn
+dataprep
+xgboost
