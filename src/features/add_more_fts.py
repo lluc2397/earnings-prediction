@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 
-
 from ..constants import DATA_DIR, RESCALE_VALUE
 
 
@@ -73,41 +72,70 @@ def main():
     df["revenue_growth_rate"] = df["Revenue"].pct_change()
     df["capex_growth_rate"] = df["capex"].pct_change()
 
-    resumed_df = df[
-        [
-            "Ticker",
-            "Fiscal Year",
-            "Revenue",
-            "Cost of Revenue",
-            "Net Income",
-            "fcf",
-            "owners_earnings",
-            "roa",
-            "roe",
-            "roc",
-            "current_ratio",
-            "quick_ratio",
-            "gross_margin",
-            "net_income_margin",
-            "fcf_margin",
-            "owners_earnings_to_net_income",
-            "rd_to_net_income",
-            "capex_to_net_income",
-            "net_income_growth_rate",
-        ]
-    ]
-
-    resumed_df["Revenue"] = resumed_df["Revenue"] / RESCALE_VALUE
-    resumed_df["Cost of Revenue"] = resumed_df["Cost of Revenue"] / RESCALE_VALUE
-    resumed_df["Net Income"] = resumed_df["Net Income"] / RESCALE_VALUE
-    resumed_df["fcf"] = resumed_df["fcf"] / RESCALE_VALUE
-    resumed_df["owners_earnings"] = resumed_df["owners_earnings"] / RESCALE_VALUE
-
-    resumed_df = resumed_df.round(2)
-    resumed_df_dropped = resumed_df.dropna()
-    resumed_df.replace([np.inf, -np.inf, np.nan], 0, inplace=True)
-    resumed_df.to_csv(f"{DATA_DIR}/interim/new_features.csv")
-    resumed_df_dropped.to_csv(f"{DATA_DIR}/interim/new_features_drops.csv")
+    for field in [
+        "Revenue",
+        "Cost of Revenue",
+        "Gross Profit",
+        "Operating Expenses",
+        "Selling, General & Administrative",
+        "Research & Development",
+        "Depreciation & Amortization",
+        "Operating Income (Loss)",
+        "Non-Operating Income (Loss)",
+        "Interest Expense, Net",
+        "Pretax Income (Loss), Adj.",
+        "Abnormal Gains (Losses)",
+        "Pretax Income (Loss)",
+        "Income Tax (Expense) Benefit, Net",
+        "Income (Loss) from Continuing Operations",
+        "Net Extraordinary Gains (Losses)",
+        "Net Income",
+        "Net Income (Common)",
+        "Cash, Cash Equivalents & Short Term Investments",
+        "Accounts & Notes Receivable",
+        "Inventories",
+        "Total Current Assets",
+        "Property, Plant & Equipment, Net",
+        "Long Term Investments & Receivables",
+        "Other Long Term Assets",
+        "Total Noncurrent Assets",
+        "Total Assets",
+        "Payables & Accruals",
+        "Short Term Debt",
+        "Total Current Liabilities",
+        "Long Term Debt",
+        "Total Noncurrent Liabilities",
+        "Total Liabilities",
+        "Share Capital & Additional Paid-In Capital",
+        "Treasury Stock",
+        "Retained Earnings",
+        "Total Equity",
+        "Total Liabilities & Equity",
+        "Net Income/Starting Line",
+        "Depreciation & Amortization.1",
+        "Non-Cash Items",
+        "Change in Working Capital",
+        "Change in Accounts Receivable",
+        "Change in Inventories",
+        "Change in Accounts Payable",
+        "Change in Other",
+        "Net Cash from Operating Activities",
+        "Change in Fixed Assets & Intangibles",
+        "Net Change in Long Term Investment",
+        "Net Cash from Acquisitions & Divestitures",
+        "Net Cash from Investing Activities",
+        "Dividends Paid",
+        "Cash from (Repayment of) Debt",
+        "Cash from (Repurchase of) Equity",
+        "Net Cash from Financing Activities",
+        "Net Change in Cash",
+        "invested_capital",
+        "capex",
+    ]:
+        df[field] = df[field] / RESCALE_VALUE
+    df = df.round(2)
+    df.replace([np.inf, -np.inf, np.nan], 0, inplace=True)
+    df.to_csv(f"{DATA_DIR}/interim/more_fts.csv")
 
 
 if __name__ == "__main__":

@@ -1,9 +1,6 @@
 import pandas as pd
-from pathlib import Path
 
-
-ROOT_DIR = Path().resolve(strict=True)
-DATA_DIR = f"{ROOT_DIR}/data"
+from ..constants import DATA_DIR
 
 
 def full_empty():

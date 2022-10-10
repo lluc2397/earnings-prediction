@@ -1,1 +1,13 @@
 https://medium.com/mlearning-ai/data-science-basics-time-series-analysis-with-oil-price-data-in-python-6f0b58321659
+
+https://github.com/Alro10/deep-learning-time-series
+
+https://hpriya206.medium.com/sales-prediction-using-python-for-machine-learning-6a76e4d63e71
+
+https://sundarstyles89.medium.com/variable-selection-using-python-vote-based-approach-faa42da960f0
+
+https://auto-ml.readthedocs.io/en/latest/
+
+https://data-flair.training/blogs/machine-learning-algorithms-in-python/#:~:text=Linear%20regression%20is%20one%20of,regression%20or%20multiple%20linear%20regression.
+
+https://towardsdatascience.com/end-to-end-python-framework-for-predictive-modeling-b8052bb96a78

@@ -38,7 +38,7 @@ data:
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py data/raw data/processed
 
 features:
-	$(PYTHON_INTERPRETER) src/features/build_features.py
+	$(PYTHON_INTERPRETER) src/features/add_more_fts.py
 
 ## Delete all compiled Python files
 clean:
